@@ -12,7 +12,7 @@
             --light-bg: #F4F7FA;
             --white: #FFFFFF;
             --text-dark: #333333;
-            --construction-amber: #F2A900;
+            --banner-yellow: #F2A900;
         }
 
         * {
@@ -27,6 +27,21 @@
             background-color: var(--light-bg);
             color: var(--text-dark);
             line-height: 1.6;
+        }
+
+        /* Restored Yellow Informational Top Banner */
+        .info-banner {
+            background-color: var(--banner-yellow);
+            color: #000000;
+            text-align: center;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         /* Header & Logo */
@@ -381,6 +396,11 @@
 </head>
 <body>
 
+    <!-- Restored Banner with Updated Friendly Messaging -->
+    <div class="info-banner">
+        💡 This site is constantly being updated with new information. Please check in from time to time! 💡
+    </div>
+
     <header>
         <div class="logo-container">
             <img src="logo.png" alt="Tri-Valley Alliances Volleyball Logo">
@@ -401,8 +421,9 @@
         <div class="grid-2">
             <section>
                 <h2>Program Leadership & Training</h2>
-                <p><strong>Executive Director (External Affairs):</strong> Eric Ng</p>
-                <p><strong>Coaching Director:</strong> <span class="bio-trigger" id="openBio">Joey Chang</span></p>
+                <p><strong>Executive Director (External Affairs):</strong> <span class="bio-trigger" id="openEricBio">Eric Ng</span></p>
+                <!-- Updated Title for Joey -->
+                <p><strong>Co-founder & Coaching Director:</strong> <span class="bio-trigger" id="openJoeyBio">Joey Chang</span></p>
                 <p><strong>Practice Schedule:</strong> 3 times per week</p>
                 <p><strong>Location:</strong> Local middle school(s)</p>
                 
@@ -497,15 +518,37 @@
 
     </div>
 
-    <!-- Pop-up Bio Modal Container -->
-    <div class="modal-overlay" id="bioModal">
+    <!-- Pop-up Bio Modal Container for Eric Ng -->
+    <div class="modal-overlay" id="ericModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2>Eric Ng</h2>
+                    <span>Executive Director</span>
+                </div>
+                <button class="modal-close" id="closeEricBio" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Updated Bio opening line -->
+                <p>Eric is the co-founder and Executive Director of Tri-Valley Alliances. His involvement in competitive youth sports spans organizing, coaching, and officiating, giving him a comprehensive, 360-degree understanding of the game. On the court, Eric serves as an assistant coach for the Emerald High School Girls Varsity volleyball team, where he focuses on developing technical discipline, tactical intelligence, and strong team dynamics.</p>
+                
+                <p>Beyond coaching, Eric is heavily invested in the officiating and regulatory side of the sport. He is a Regional Referee for the Northern California Volleyball Association (NCVA) and a certified official with the Pacific Sierra Board of Officials (PSBO), Mid-Coast Officials Network (MCON), Bay Area Officials Association (BAOA), and the Bay Area Athletic Assignors (BAAA). His extensive background on the stand ensures that Tri-Valley athletes are trained under the highest standards of rule compliance, fair play, and court awareness.</p>
+                
+                <p>Professionally based in Livermore, California, Eric pairs his administrative leadership with a strong analytical background. He looks at club sports through a modern, transparent lens, aiming to strip away the traditional inefficiencies of club sports to deliver a streamlined, impactful experience. He is dedicated to using volleyball as a vehicle for leadership development, ensuring that players build the project management and accountability skills necessary to stand out on college applications and thrive in their future careers.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop-up Bio Modal Container for Joey Chang -->
+    <div class="modal-overlay" id="joeyModal">
         <div class="modal-card">
             <div class="modal-header">
                 <div class="modal-title">
                     <h2>Joey Chang</h2>
-                    <span>Coaching Director</span>
+                    <!-- Updated Modal Title for Joey -->
+                    <span>Co-founder & Coaching Director</span>
                 </div>
-                <button class="modal-close" id="closeBio" aria-label="Close modal">&times;</button>
+                <button class="modal-close" id="closeJoeyBio" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
                 <p>Joey brings over 35 years of rich, diverse volleyball experience to Tri-Valley Alliances. His journey through the sport spans almost every format imaginable—from highly competitive indoor play alongside collegiate teammates, to corporate beach play, grass tournaments with youth players, and even training in adaptive sitting volleyball with USA Paralympic athletes. As a dedicated coach, he has led competitive athletes through three seasons each of boys’ and girls’ club volleyball with NorCal Volleyball Club, as well as serving four years coaching JV and Varsity at The Athenian School.</p>
@@ -524,37 +567,42 @@
 
     <!-- Interactive Pop-up Handlers -->
     <script>
-        const modal = document.getElementById('bioModal');
-        const openBtn = document.getElementById('openBio');
-        const closeBtn = document.getElementById('closeBio');
+        // Modal toggler factory logic to handle multiple bios dynamically
+        function setupModal(modalId, openBtnId, closeBtnId) {
+            const modal = document.getElementById(modalId);
+            const openBtn = document.getElementById(openBtnId);
+            const closeBtn = document.getElementById(closeBtnId);
 
-        // Open pop-up
-        openBtn.addEventListener('click', () => {
-            modal.classList.add('is-active');
-            document.body.style.overflow = 'hidden'; // Lock main page scrolling
-        });
+            if (!modal || !openBtn || !closeBtn) return;
 
-        // Close pop-up via 'X' button
-        closeBtn.addEventListener('click', () => {
-            modal.classList.remove('is-active');
-            document.body.style.overflow = ''; 
-        });
+            openBtn.addEventListener('click', () => {
+                modal.classList.add('is-active');
+                document.body.style.overflow = 'hidden'; // Lock main page scrolling
+            });
 
-        // Close pop-up by clicking the background shadow
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
+            closeBtn.addEventListener('click', () => {
                 modal.classList.remove('is-active');
-                document.body.style.overflow = '';
-            }
-        });
+                document.body.style.overflow = ''; 
+            });
 
-        // Close pop-up with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('is-active')) {
-                modal.classList.remove('is-active');
-                document.body.style.overflow = '';
-            }
-        });
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('is-active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+                    modal.classList.remove('is-active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        // Initialize active handlers for both leadership profiles
+        setupModal('ericModal', 'openEricBio', 'closeEricBio');
+        setupModal('joeyModal', 'openJoeyBio', 'closeJoeyBio');
     </script>
 
 </body>
