@@ -29,21 +29,6 @@
             line-height: 1.6;
         }
 
-        /* Under Construction Banner */
-        .construction-banner {
-            background-color: var(--construction-amber);
-            color: #000;
-            text-align: center;
-            padding: 10px 20px;
-            font-weight: bold;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
         /* Header & Logo */
         header {
             background-color: var(--white);
@@ -60,25 +45,47 @@
             margin: 0 auto 15px auto;
         }
 
-        /* Simple Navigation Button */
+        /* Dual Navigation Buttons Layout */
         .nav-container {
-            margin-top: 10px;
+            margin-top: 15px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap; /* Stacks nicely on mobile screens */
         }
 
         .cta-nav-btn {
             display: inline-block;
-            background-color: var(--navy-dark);
-            color: var(--white);
-            padding: 10px 24px;
+            padding: 12px 24px;
             text-decoration: none;
             border-radius: 25px;
             font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .cta-nav-btn:hover {
-            background-color: var(--blue-slate);
+        /* Distinctive colors for the two actions */
+        .btn-form {
+            background-color: var(--navy-dark);
+            color: var(--white);
+        }
+
+        .btn-form:hover {
+            background-color: #001f42;
             transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-email {
+            background-color: var(--blue-slate);
+            color: var(--white);
+        }
+
+        .btn-email:hover {
+            background-color: #4a73a0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
         /* Container Layout */
@@ -220,59 +227,145 @@
             display: block;
         }
 
-        /* Contact Section Styles */
-        .contact-intro {
-            margin-bottom: 25px;
-            font-size: 1.05rem;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        /* Direct Action Email Cards */
-        .email-box {
-            background-color: var(--light-bg);
-            padding: 25px;
+        /* Responsive Iframe Container for Google Forms */
+        .form-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 760px;
+            margin: 20px auto 0 auto;
+            overflow: hidden;
+            background-color: var(--white);
             border-radius: 6px;
-            border-top: 4px solid var(--navy-dark);
+        }
+
+        .form-wrapper iframe {
+            width: 100%;
+            height: 2200px;
+            border: none;
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .form-wrapper iframe {
+                height: 2500px;
+            }
+        }
+
+        /* Bio Link/Trigger Style */
+        .bio-trigger {
+            color: var(--blue-slate);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--blue-slate);
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .bio-trigger:hover {
+            color: var(--navy-dark);
+            border-bottom-style: solid;
+        }
+
+        /* Pop-up Modal Box Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 2000;
+        }
+
+        .modal-overlay.is-active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: var(--white);
+            width: 90%;
+            max-width: 650px;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .modal-overlay.is-active .modal-card {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 24px 24px 16px;
+            border-bottom: 1px solid #edf2f7;
+            display: flex;
             justify-content: space-between;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            align-items: flex-start;
+            background-color: var(--white);
         }
 
-        .email-box h4 {
+        .modal-title h2 {
+            margin: 0;
+            font-size: 1.6rem;
             color: var(--navy-dark);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
-        .email-box p {
-            font-size: 0.95rem;
-            color: #555;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .email-btn {
-            display: inline-block;
-            background-color: var(--navy-dark);
-            color: var(--white);
-            text-align: center;
-            padding: 12px 20px;
-            text-decoration: none;
-            border-radius: 5px;
+        .modal-title span {
+            display: block;
+            font-size: 0.9rem;
+            color: #718096;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             font-weight: bold;
-            font-size: 0.95rem;
-            transition: background-color 0.3s ease;
         }
 
-        .email-btn:hover {
-            background-color: var(--blue-slate);
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #a0aec0;
+            cursor: pointer;
+            padding: 0 6px;
+            line-height: 1;
+            border-radius: 4px;
+            transition: color 0.2s, background-color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+        }
+
+        .modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            font-size: 1rem;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .modal-body p {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .modal-body p:last-child {
+            margin-bottom: 0;
         }
 
         /* Footer */
@@ -288,37 +381,28 @@
 </head>
 <body>
 
-    <!-- Under Construction Banner -->
-    <div class="construction-banner">
-        ⚠️ THIS SITE IS CURRENTLY UNDER CONSTRUCTION — MORE INFORMATION WILL BE ADDED SOON! ⚠️
-    </div>
-
-    <!-- Header Section -->
     <header>
         <div class="logo-container">
-            <!-- Point this to your logo image file -->
             <img src="logo.png" alt="Tri-Valley Alliances Volleyball Logo">
         </div>
         <div class="nav-container">
-            <a href="#contact" class="cta-nav-btn">Contact Us / Get Involved</a>
+            <a href="#contact-form-section" class="cta-nav-btn btn-form">Interested in Clinics / Tryout</a>
+            <a href="mailto:ericng74@gmail.com?subject=Tri-Valley%20Alliances%20General%20Inquiry" class="cta-nav-btn btn-email">Email Us</a>
         </div>
     </header>
 
     <div class="container">
 
-        <!-- Mission Statement -->
         <section class="mission-section">
             <h2>Our Mission</h2>
             <p class="mission-p">"To provide an affordable club experience for academically-focused high-schoolers who want to continue to develop their passion in volleyball and enhance their college application with a passion project."</p>
         </section>
 
-        <!-- Overview Grid -->
         <div class="grid-2">
-            <!-- Program Leadership & Details -->
             <section>
                 <h2>Program Leadership & Training</h2>
                 <p><strong>Executive Director (External Affairs):</strong> Eric Ng</p>
-                <p><strong>Coaching Director:</strong> Joey Chang</p>
+                <p><strong>Coaching Director:</strong> <span class="bio-trigger" id="openBio">Joey Chang</span></p>
                 <p><strong>Practice Schedule:</strong> 3 times per week</p>
                 <p><strong>Location:</strong> Local middle school(s)</p>
                 
@@ -326,7 +410,6 @@
                 <p>We do not form team(s) by age group. Instead, we will form either 1 or 2 teams based strictly on skill level. Teams compete in the 15-18s division for WCVBA leagues and events. For Far Western (NCVA), we may compete in the 16s or 17s age level depending on the oldest player’s birthday on the team.</p>
             </section>
 
-            <!-- Notable Benefits -->
             <section>
                 <h2>Why Tri-Valley Alliances?</h2>
                 <ul>
@@ -338,7 +421,6 @@
             </section>
         </div>
 
-        <!-- Leadership Incubator Framework -->
         <section>
             <h2>The Leadership Incubator Framework</h2>
             <p>We do not behave like traditional clubs. Beyond volleyball on the court, we focus heavily on the off-the-court experience. While the club provides the operational infrastructure (NCVA/WCVBA membership, insurance, facilities), <strong>the players are responsible for the team's operational life.</strong></p>
@@ -369,7 +451,6 @@
             </div>
         </section>
 
-        <!-- Schedule & Financials -->
         <section>
             <h2>Tournament Schedule & Fees</h2>
             <p><strong>Base Club Fee:</strong> Around $3,500*</p>
@@ -405,48 +486,76 @@
             <span class="footnote">**Subject to final registration confirmation.</span>
         </section>
 
-        <!-- Contact Us Section -->
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p class="contact-intro">Are you looking to join the alliance? Click the appropriate button below to instantly email our Executive Director, Eric Ng, with your inquiry. We look forward to hearing from you!</p>
+        <section id="contact-form-section">
+            <h2>Contact Us / Get Involved</h2>
+            <p>Please fill out our official interest form below to connect with us. Whether you are a player, parent, or coach, we look forward to reviewing your submission!</p>
             
-            <div class="contact-grid">
-                <!-- Player Box -->
-                <div class="email-box">
-                    <div>
-                        <h4>👋 For Prospective Players</h4>
-                        <p>Let us know your current school, graduation year, volleyball experience, and what off-the-court leadership tracks catch your eye!</p>
-                    </div>
-                    <a href="mailto:ericng74@gmail.com?subject=TVA%20Inquiry%20-%20Prospective%20Player" class="email-btn">Email as a Player</a>
-                </div>
-
-                <!-- Parent Box -->
-                <div class="email-box">
-                    <div>
-                        <h4>👪 For Parents</h4>
-                        <p>Have questions regarding our transparent operational costs, non-profit framework, or tournament logistics? Reach out directly.</p>
-                    </div>
-                    <a href="mailto:ericng74@gmail.com?subject=TVA%20Inquiry%20-%20Parent" class="email-btn">Email as a Parent</a>
-                </div>
-
-                <!-- Coach Box -->
-                <div class="email-box">
-                    <div>
-                        <h4>🏐 For Prospective Coaches</h4>
-                        <p>If you're interested in mentoring dedicated, academically focused athletes and shaping a novel club program layout, connect with us.</p>
-                    </div>
-                    <a href="mailto:ericng74@gmail.com?subject=TVA%20Inquiry%20-%20Prospective%20Coach" class="email-btn">Email as a Coach</a>
-                </div>
+            <div class="form-wrapper">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfSbwclZbffB0vCxaJ2BU5FLMkxZAvr9WfOh0_E_HpLal36sQ/viewform?embedded=true" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </section>
 
     </div>
 
-    <!-- Footer Section -->
+    <!-- Pop-up Bio Modal Container -->
+    <div class="modal-overlay" id="bioModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2>Joey Chang</h2>
+                    <span>Coaching Director</span>
+                </div>
+                <button class="modal-close" id="closeBio" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Joey brings over 35 years of rich, diverse volleyball experience to Tri-Valley Alliances. His journey through the sport spans almost every format imaginable—from highly competitive indoor play alongside collegiate teammates, to corporate beach play, grass tournaments with youth players, and even training in adaptive sitting volleyball with USA Paralympic athletes. As a dedicated coach, he has led competitive athletes through three seasons each of boys’ and girls’ club volleyball with NorCal Volleyball Club, as well as serving four years coaching JV and Varsity at The Athenian School.</p>
+                
+                <p>Beyond his court credentials, Joey’s background in software engineering, game design, and risk management gives him an incredibly unique, analytical lens for sports development. He approaches the game through the framework of optimization, data analysis, and technical efficiency, while maintaining a deep focus on player motivation and psychological engagement.</p>
+                
+                <p>Guided by three core principles—complete team unity, relentless personal accountability, and evaluating performance based on true success rather than just the scoreboard—Joey views volleyball as a happy vehicle for a greater purpose. As a proud father of three, he believes a coach's ultimate responsibility is to prepare young athletes to navigate the real world and thrive as successful, respectful adults.</p>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2026 Tri-Valley Alliances. All Rights Reserved.</p>
         <p style="font-size: 0.8rem; margin-top: 10px; color: var(--blue-slate);">This organization is a non-profit club volleyball program.</p>
     </footer>
+
+    <!-- Interactive Pop-up Handlers -->
+    <script>
+        const modal = document.getElementById('bioModal');
+        const openBtn = document.getElementById('openBio');
+        const closeBtn = document.getElementById('closeBio');
+
+        // Open pop-up
+        openBtn.addEventListener('click', () => {
+            modal.classList.add('is-active');
+            document.body.style.overflow = 'hidden'; // Lock main page scrolling
+        });
+
+        // Close pop-up via 'X' button
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('is-active');
+            document.body.style.overflow = ''; 
+        });
+
+        // Close pop-up by clicking the background shadow
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('is-active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close pop-up with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+                modal.classList.remove('is-active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
 
 </body>
 </html>
