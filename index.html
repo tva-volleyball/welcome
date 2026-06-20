@@ -1,609 +1,590 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tri-Valley Alliances Volleyball Club</title>
-    <style>
-        /* Color Palette from Logo */
-        :root {
-            --navy-dark: #002855;
-            --blue-slate: #5B84B1;
-            --light-bg: #F4F7FA;
-            --white: #FFFFFF;
-            --text-dark: #333333;
-            --banner-yellow: #F2A900;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tri-Valley Alliances Volleyball Club</title>
+  <style>
+    :root {
+      --navy-dark: #002855;
+      --blue-slate: #5B84B1;
+      --light-bg: #F4F7FA;
+      --white: #FFFFFF;
+      --text-dark: #333333;
+      --banner-yellow: #F2A900;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+    }
 
-        body {
-            background-color: var(--light-bg);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
+    body {
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
 
-        /* Restored Yellow Informational Top Banner */
-        .info-banner {
-            background-color: var(--banner-yellow);
-            color: #000000;
-            text-align: center;
-            padding: 10px 20px;
-            font-weight: bold;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+    .info-banner {
+      background-color: var(--banner-yellow);
+      color: #000000;
+      text-align: center;
+      padding: 10px 20px;
+      font-weight: bold;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
 
-        /* Header & Logo */
-        header {
-            background-color: var(--white);
-            padding: 20px;
-            text-align: center;
-            border-bottom: 3px solid var(--navy-dark);
-        }
+    header {
+      background-color: var(--white);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 3px solid var(--navy-dark);
+    }
 
-        .logo-container img {
-            max-width: 400px;
-            width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto 15px auto;
-        }
+    .logo-container img {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 15px auto;
+    }
 
-        /* Dual Navigation Buttons Layout */
-        .nav-container {
-            margin-top: 15px;
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap; /* Stacks nicely on mobile screens */
-        }
+    .nav-container {
+      margin-top: 15px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-        .cta-nav-btn {
-            display: inline-block;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-        }
+    .cta-nav-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-        /* Distinctive colors for the two actions */
-        .btn-form {
-            background-color: var(--navy-dark);
-            color: var(--white);
-        }
+    .btn-form {
+      background-color: var(--navy-dark);
+      color: var(--white);
+    }
 
-        .btn-form:hover {
-            background-color: #001f42;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
+    .btn-form:hover {
+      background-color: #001f42;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
 
-        .btn-email {
-            background-color: var(--blue-slate);
-            color: var(--white);
-        }
+    .btn-email {
+      background-color: var(--blue-slate);
+      color: var(--white);
+    }
 
-        .btn-email:hover {
-            background-color: #4a73a0;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
+    .btn-email:hover {
+      background-color: #4a73a0;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
 
-        /* Container Layout */
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-        /* Typography & Headings */
-        h2 {
-            color: var(--navy-dark);
-            border-bottom: 2px solid var(--blue-slate);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
+    h2 {
+      color: var(--navy-dark);
+      border-bottom: 2px solid var(--blue-slate);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
 
-        h3 {
-            color: var(--blue-slate);
-            margin-bottom: 15px;
-        }
+    h3 {
+      color: var(--blue-slate);
+      margin-bottom: 15px;
+    }
 
-        p {
-            margin-bottom: 15px;
-        }
+    p {
+      margin-bottom: 15px;
+    }
 
-        /* Sections */
-        section {
-            background: var(--white);
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
+    section {
+      background: var(--white);
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
 
-        /* Mission Statement Hero */
-        .mission-section {
-            background: linear-gradient(135deg, var(--navy-dark) 0%, #001f42 100%);
-            color: var(--white);
-            text-align: center;
-            padding: 40px 30px;
-        }
+    .mission-section {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, #001f42 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 40px 30px;
+    }
 
-        .mission-section h2 {
-            color: var(--white);
-            border-bottom: 2px solid var(--blue-slate);
-            display: inline-block;
-            margin-bottom: 15px;
-        }
+    .mission-section h2 {
+      color: var(--white);
+      border-bottom: 2px solid var(--blue-slate);
+      display: inline-block;
+      margin-bottom: 15px;
+    }
 
-        .mission-p {
-            font-size: 1.2rem;
-            font-style: italic;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    .mission-p {
+      font-size: 1.2rem;
+      font-style: italic;
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-        /* Two Column Grid */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
 
-        @media (max-width: 768px) {
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-        }
+    @media (max-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
 
-        /* Lists */
-        ul {
-            list-style-type: none;
-        }
+    ul {
+      list-style-type: none;
+    }
 
-        ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 12px;
-        }
+    ul li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 12px;
+    }
 
-        ul li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--blue-slate);
-            font-weight: bold;
-        }
+    ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--blue-slate);
+      font-weight: bold;
+    }
 
-        /* Incubator/Task Cards */
-        .task-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
+    .task-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
 
-        .task-card {
-            background: var(--light-bg);
-            padding: 15px;
-            border-left: 4px solid var(--navy-dark);
-            border-radius: 4px;
-        }
+    .task-card {
+      background: var(--light-bg);
+      padding: 15px;
+      border-left: 4px solid var(--navy-dark);
+      border-radius: 4px;
+    }
 
-        .task-card strong {
-            color: var(--navy-dark);
-            display: block;
-            margin-bottom: 5px;
-        }
+    .task-card strong {
+      color: var(--navy-dark);
+      display: block;
+      margin-bottom: 5px;
+    }
 
-        /* Tables */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background: var(--white);
-        }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: var(--white);
+    }
 
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
 
-        th {
-            background-color: var(--navy-dark);
-            color: var(--white);
-        }
+    th {
+      background-color: var(--navy-dark);
+      color: var(--white);
+    }
 
-        tr:nth-child(even) {
-            background-color: var(--light-bg);
-        }
+    tr:nth-child(even) {
+      background-color: var(--light-bg);
+    }
 
-        .footnote {
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 10px;
-            display: block;
-        }
+    .footnote {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 10px;
+      display: block;
+    }
 
-        /* Responsive Iframe Container for Google Forms */
-        .form-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 760px;
-            margin: 20px auto 0 auto;
-            overflow: hidden;
-            background-color: var(--white);
-            border-radius: 6px;
-        }
+    .form-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 760px;
+      margin: 20px auto 0 auto;
+      overflow: hidden;
+      background-color: var(--white);
+      border-radius: 6px;
+    }
 
-        .form-wrapper iframe {
-            width: 100%;
-            height: 2200px;
-            border: none;
-            display: block;
-        }
+    .form-wrapper iframe {
+      width: 100%;
+      height: 2200px;
+      border: none;
+      display: block;
+    }
 
-        @media (max-width: 600px) {
-            .form-wrapper iframe {
-                height: 2500px;
-            }
-        }
+    @media (max-width: 600px) {
+      .form-wrapper iframe {
+        height: 2500px;
+      }
+    }
 
-        /* Bio Link/Trigger Style */
-        .bio-trigger {
-            color: var(--blue-slate);
-            text-decoration: none;
-            border-bottom: 1px dashed var(--blue-slate);
-            cursor: pointer;
-            font-weight: bold;
-            transition: color 0.2s, border-color 0.2s;
-        }
+    .bio-trigger {
+      color: var(--blue-slate);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--blue-slate);
+      cursor: pointer;
+      font-weight: bold;
+      transition: color 0.2s, border-color 0.2s;
+    }
 
-        .bio-trigger:hover {
-            color: var(--navy-dark);
-            border-bottom-style: solid;
-        }
+    .bio-trigger:hover {
+      color: var(--navy-dark);
+      border-bottom-style: solid;
+    }
 
-        /* Pop-up Modal Box Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(3px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            z-index: 2000;
-        }
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(3px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 2000;
+    }
 
-        .modal-overlay.is-active {
-            opacity: 1;
-            pointer-events: auto;
-        }
+    .modal-overlay.is-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-        .modal-card {
-            background: var(--white);
-            width: 90%;
-            max-width: 650px;
-            max-height: 85vh;
-            border-radius: 12px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-            overflow: hidden;
-        }
+    .modal-card {
+      background: var(--white);
+      width: 90%;
+      max-width: 650px;
+      max-height: 85vh;
+      border-radius: 12px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      overflow: hidden;
+    }
 
-        .modal-overlay.is-active .modal-card {
-            transform: translateY(0);
-        }
+    .modal-overlay.is-active .modal-card {
+      transform: translateY(0);
+    }
 
-        .modal-header {
-            padding: 24px 24px 16px;
-            border-bottom: 1px solid #edf2f7;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            background-color: var(--white);
-        }
+    .modal-header {
+      padding: 24px 24px 16px;
+      border-bottom: 1px solid #edf2f7;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      background-color: var(--white);
+    }
 
-        .modal-title h2 {
-            margin: 0;
-            font-size: 1.6rem;
-            color: var(--navy-dark);
-            border-bottom: none;
-            padding-bottom: 0;
-        }
+    .modal-title h2 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: var(--navy-dark);
+      border-bottom: none;
+      padding-bottom: 0;
+    }
 
-        .modal-title span {
-            display: block;
-            font-size: 0.9rem;
-            color: #718096;
-            margin-top: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-weight: bold;
-        }
+    .modal-title span {
+      display: block;
+      font-size: 0.9rem;
+      color: #718096;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: bold;
+    }
 
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            color: #a0aec0;
-            cursor: pointer;
-            padding: 0 6px;
-            line-height: 1;
-            border-radius: 4px;
-            transition: color 0.2s, background-color 0.2s;
-        }
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: #a0aec0;
+      cursor: pointer;
+      padding: 0 6px;
+      line-height: 1;
+      border-radius: 4px;
+      transition: color 0.2s, background-color 0.2s;
+    }
 
-        .modal-close:hover {
-            color: var(--text-dark);
-            background-color: var(--light-bg);
-        }
+    .modal-close:hover {
+      color: var(--text-dark);
+      background-color: var(--light-bg);
+    }
 
-        .modal-body {
-            padding: 24px;
-            overflow-y: auto;
-            font-size: 1rem;
-            color: var(--text-dark);
-            background-color: var(--white);
-        }
+    .modal-body {
+      padding: 24px;
+      overflow-y: auto;
+      font-size: 1rem;
+      color: var(--text-dark);
+      background-color: var(--white);
+    }
 
-        .modal-body p {
-            margin-top: 0;
-            margin-bottom: 16px;
-        }
+    .modal-body p {
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
 
-        .modal-body p:last-child {
-            margin-bottom: 0;
-        }
+    .modal-body p:last-child {
+      margin-bottom: 0;
+    }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: var(--navy-dark);
-            color: var(--white);
-            margin-top: 60px;
-            font-size: 0.9rem;
-        }
-    </style>
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: var(--navy-dark);
+      color: var(--white);
+      margin-top: 60px;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
+
 <body>
+  <div class="info-banner">
+    This site is constantly being updated with new information. Please check in from time to time!
+  </div>
 
-    <!-- Restored Banner with Updated Friendly Messaging -->
-    <div class="info-banner">
-        💡 This site is constantly being updated with new information. Please check in from time to time! 💡
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Tri-Valley Alliances Volleyball Logo">
     </div>
 
-    <header>
-        <div class="logo-container">
-            <img src="logo.png" alt="Tri-Valley Alliances Volleyball Logo">
-        </div>
-        <div class="nav-container">
-            <a href="#contact-form-section" class="cta-nav-btn btn-form">Interested in Clinics / Tryout</a>
-            <a href="mailto:ericng74@gmail.com?subject=Tri-Valley%20Alliances%20General%20Inquiry" class="cta-nav-btn btn-email">Email Us</a>
-        </div>
-    </header>
+    <div class="nav-container">
+      <a href="#contact-form-section" class="cta-nav-btn btn-form">Interested in Clinics / Tryout</a>
+      <a href="mailto:ericng74@gmail.com?subject=Tri-Valley%20Alliances%20General%20Inquiry" class="cta-nav-btn btn-email">Email Us</a>
+    </div>
+  </header>
 
-    <div class="container">
+  <div class="container">
+    <section class="mission-section">
+      <h2>Our Mission</h2>
+      <p class="mission-p">"To provide an affordable club experience for academically-focused students who want to continue to develop their passion in volleyball."</p>
+    </section>
 
-        <section class="mission-section">
-            <h2>Our Mission</h2>
-            <p class="mission-p">"To provide an affordable club experience for academically-focused high-schoolers who want to continue to develop their passion in volleyball and enhance their college application with a passion project."</p>
-        </section>
+    <div class="grid-2">
+      <section>
+        <h2>Program Leadership & Training</h2>
+        <p><strong>Executive Director (External Affairs):</strong> <span class="bio-trigger" id="openEricBio">Eric Ng</span></p>
+        <p><strong>Co-founder & Coaching Director:</strong> <span class="bio-trigger" id="openJoeyBio">Joey Chang</span></p>
+        <p><strong>Practice Schedule:</strong> 3 times per week</p>
+        <p><strong>Location:</strong> Local middle school(s)</p>
 
-        <div class="grid-2">
-            <section>
-                <h2>Program Leadership & Training</h2>
-                <p><strong>Executive Director (External Affairs):</strong> <span class="bio-trigger" id="openEricBio">Eric Ng</span></p>
-                <!-- Updated Title for Joey -->
-                <p><strong>Co-founder & Coaching Director:</strong> <span class="bio-trigger" id="openJoeyBio">Joey Chang</span></p>
-                <p><strong>Practice Schedule:</strong> 3 times per week</p>
-                <p><strong>Location:</strong> Local middle school(s)</p>
-                
-                <h3 style="margin-top: 25px;">Team Structure</h3>
-                <p>We do not form team(s) by age group. Instead, we will form either 1 or 2 teams based strictly on skill level. Teams compete in the 15-18s division for WCVBA leagues and events. For Far Western (NCVA), we may compete in the 16s or 17s age level depending on the oldest player’s birthday on the team.</p>
-            </section>
+        <h3 style="margin-top: 25px;">Team Structure</h3>
+        <p>We do not form team(s) by age group. Instead, we will form either 1 or 2 teams based strictly on skill level. Teams compete in the 15-18s division for WCVBA leagues and events. For Far Western (NCVA), we may compete in the 16s or 17s age level depending on the oldest player’s birthday on the team.</p>
+      </section>
 
-            <section>
-                <h2>Why Tri-Valley Alliances?</h2>
-                <ul>
-                    <li><strong>Academic Balance:</strong> We focus on academically oriented kids who want a club path that lets them balance school priorities with competitive volleyball.</li>
-                    <li><strong>Reduced Travel Time:</strong> Most players will be from local high schools in the immediate area, cutting down on commute times.</li>
-                    <li><strong>Minimized Costs & Disruptions:</strong> We play exclusively in the WCVBA league and do not chase multiple far-away qualifiers, protecting your weekends and avoiding missed school days.</li>
-                    <li><strong>Non-Profit, Transparent Structure:</strong> An extremely thin organization means significantly lower costs to players to relieve financial burdens. Every dollar is fully transparent.</li>
-                </ul>
-            </section>
-        </div>
-
-        <section>
-            <h2>The Leadership Incubator Framework</h2>
-            <p>We do not behave like traditional clubs. Beyond volleyball on the court, we focus heavily on the off-the-court experience. While the club provides the operational infrastructure (NCVA/WCVBA membership, insurance, facilities), <strong>the players are responsible for the team's operational life.</strong></p>
-            <p>This model deliberately shifts traditional "Team Mom" tasks into student-led initiatives, acting as a perfect <strong>passion project</strong> to strengthen athletes' college applications!</p>
-            
-            <h3>Player Task List (Off-the-Court Projects):</h3>
-            <div class="task-grid">
-                <div class="task-card">
-                    <strong>Brand & Aesthetic Design</strong>
-                    Designing the team logo, choosing unique team names, selecting color palettes, and creating custom jerseys/spirit wear.
-                </div>
-                <div class="task-card">
-                    <strong>Financial Management & Fundraising</strong>
-                    Drafting a team budget, tracking active expenses, organizing 'Serve-a-thons', or pitching to local business sponsors.
-                </div>
-                <div class="task-card">
-                    <strong>Logistics & Travel Planning</strong>
-                    Building tournament 'Go-Bag' checklists, managing packing schedules, and researching team dinners and bonding activities for the Reno Qualifier.
-                </div>
-                <div class="task-card">
-                    <strong>Communications & Marketing</strong>
-                    Managing the team’s social media footprints and distributing internal newsletters.
-                </div>
-                <div class="task-card">
-                    <strong>Event Planning & Gameday Ops</strong>
-                    Coordinating end-of-season celebrations, parent appreciation events, managing match day schedules, setting up recording equipment, and tracking officiating duties.
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Tournament Schedule & Fees</h2>
-            <p><strong>Base Club Fee:</strong> Around $3,500*</p>
-            <span class="footnote">*Club Fee includes jersey costs. All club/team finances are entirely transparent to participating families.</span>
-            
-            <h3 style="margin-top: 25px;">Tentative Event Schedule (Estimated 15 Days of Competition):</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tournament</th>
-                        <th>Location / Timing</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>WCVBA Area or Power League (7 days)</strong></td>
-                        <td>Jan – May (Most, if not all, located in the Bay Area)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Winter Classic (2 days)</strong></td>
-                        <td>January (Local)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Presidents Day Showdown (3 days)</strong></td>
-                        <td>February (Local)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Far Westerns Qualifier (3 days)</strong></td>
-                        <td>April (Reno, NV)</td>
-                    </tr>
-                </tbody>
-            </table>
-            <span class="footnote">**Subject to final registration confirmation.</span>
-        </section>
-
-        <section id="contact-form-section">
-            <h2>Contact Us / Get Involved</h2>
-            <p>Please fill out our official interest form below to connect with us. Whether you are a player, parent, or coach, we look forward to reviewing your submission!</p>
-            
-            <div class="form-wrapper">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfSbwclZbffB0vCxaJ2BU5FLMkxZAvr9WfOh0_E_HpLal36sQ/viewform?embedded=true" marginheight="0" marginwidth="0">Loading…</iframe>
-            </div>
-        </section>
-
+      <section>
+        <h2>Why Tri-Valley Alliances?</h2>
+        <ul>
+          <li><strong>Academic Balance:</strong> We focus on academically oriented kids who want a club path that lets them balance school priorities with competitive volleyball.</li>
+          <li><strong>Reduced Travel Time:</strong> Most players will be from local high schools in the immediate area, cutting down on commute times.</li>
+          <li><strong>Minimized Costs & Disruptions:</strong> We play exclusively in the WCVBA league and do not chase multiple far-away qualifiers, protecting your weekends and avoiding missed school days.</li>
+          <li><strong>Non-Profit, Transparent Structure:</strong> An extremely thin organization means significantly lower costs to players to relieve financial burdens. Every dollar is fully transparent.</li>
+        </ul>
+      </section>
     </div>
 
-    <!-- Pop-up Bio Modal Container for Eric Ng -->
-    <div class="modal-overlay" id="ericModal">
-        <div class="modal-card">
-            <div class="modal-header">
-                <div class="modal-title">
-                    <h2>Eric Ng</h2>
-                    <span>Executive Director</span>
-                </div>
-                <button class="modal-close" id="closeEricBio" aria-label="Close modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <!-- Updated Bio opening line -->
-                <p>Eric is the co-founder and Executive Director of Tri-Valley Alliances. His involvement in competitive youth sports spans organizing, coaching, and officiating, giving him a comprehensive, 360-degree understanding of the game. On the court, Eric serves as an assistant coach for the Emerald High School Girls Varsity volleyball team, where he focuses on developing technical discipline, tactical intelligence, and strong team dynamics.</p>
-                
-                <p>Beyond coaching, Eric is heavily invested in the officiating and regulatory side of the sport. He is a Regional Referee for the Northern California Volleyball Association (NCVA) and a certified official with the Pacific Sierra Board of Officials (PSBO), Mid-Coast Officials Network (MCON), Bay Area Officials Association (BAOA), and the Bay Area Athletic Assignors (BAAA). His extensive background on the stand ensures that Tri-Valley athletes are trained under the highest standards of rule compliance, fair play, and court awareness.</p>
-                
-                <p>Professionally based in Livermore, California, Eric pairs his administrative leadership with a strong analytical background. He looks at club sports through a modern, transparent lens, aiming to strip away the traditional inefficiencies of club sports to deliver a streamlined, impactful experience. He is dedicated to using volleyball as a vehicle for leadership development, ensuring that players build the project management and accountability skills necessary to stand out on college applications and thrive in their future careers.</p>
-            </div>
+
+
+
+
+    <section>
+      <h2>Tournament Schedule & Fees</h2>
+      <p><strong>Base Club Fee:</strong> Around $3,500*</p>
+      <span class="footnote">*Club Fee includes jersey costs. All club/team finances are entirely transparent to participating families.</span>
+
+      <h3 style="margin-top: 25px;">Tentative Event Schedule (Estimated 15 Days of Competition):</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Tournament</th>
+            <th>Location / Timing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>WCVBA Area or Power League (7 days)</strong></td>
+            <td>Jan – May (Most, if not all, located in the Bay Area)</td>
+          </tr>
+          <tr>
+            <td><strong>Winter Classic (2 days)</strong></td>
+            <td>January (Local)</td>
+          </tr>
+          <tr>
+            <td><strong>Presidents Day Showdown (3 days)</strong></td>
+            <td>February (Local)</td>
+          </tr>
+          <tr>
+            <td><strong>Far Westerns Qualifier (3 days)</strong></td>
+            <td>April (Reno, NV)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <span class="footnote">**Subject to final registration confirmation.</span>
+    </section>
+
+    <section>
+      <h2>Optional Leadership Mini-Projects</h2>
+      <p>At Tri-Valley Alliances, volleyball is the foundation of the experience, but interested players may also choose to take on optional off-the-court mini-projects that help develop leadership, communication, organization, creativity, and real-world problem-solving skills.</p>
+      <p>These mini-projects are not required. They are designed as optional opportunities for athletes who want to contribute to the team community beyond practices and tournaments. For players who choose to participate, these projects can also become meaningful passion projects that may support their future college applications.</p>
+
+      <h3>Possible Mini-Project Opportunities:</h3>
+
+      <div class="task-grid">
+        <div class="task-card">
+          <strong>Brand & Aesthetic Design</strong>
+          Help design team graphics, choose team names, select color palettes, or contribute ideas for jerseys and spirit wear.
         </div>
-    </div>
 
-    <!-- Pop-up Bio Modal Container for Joey Chang -->
-    <div class="modal-overlay" id="joeyModal">
-        <div class="modal-card">
-            <div class="modal-header">
-                <div class="modal-title">
-                    <h2>Joey Chang</h2>
-                    <!-- Updated Modal Title for Joey -->
-                    <span>Co-founder & Coaching Director</span>
-                </div>
-                <button class="modal-close" id="closeJoeyBio" aria-label="Close modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p>Joey brings over 35 years of rich, diverse volleyball experience to Tri-Valley Alliances. His journey through the sport spans almost every format imaginable—from highly competitive indoor play alongside collegiate teammates, to corporate beach play, grass tournaments with youth players, and even training in adaptive sitting volleyball with USA Paralympic athletes. As a dedicated coach, he has led competitive athletes through three seasons each of boys’ and girls’ club volleyball with NorCal Volleyball Club, as well as serving four years coaching JV and Varsity at The Athenian School.</p>
-                
-                <p>Beyond his court credentials, Joey’s background in software engineering, game design, and risk management gives him an incredibly unique, analytical lens for sports development. He approaches the game through the framework of optimization, data analysis, and technical efficiency, while maintaining a deep focus on player motivation and psychological engagement.</p>
-                
-                <p>Guided by three core principles—complete team unity, relentless personal accountability, and evaluating performance based on true success rather than just the scoreboard—Joey views volleyball as a happy vehicle for a greater purpose. As a proud father of three, he believes a coach's ultimate responsibility is to prepare young athletes to navigate the real world and thrive as successful, respectful adults.</p>
-            </div>
+        <div class="task-card">
+          <strong>Financial Awareness & Fundraising</strong>
+          Help brainstorm fundraising ideas, support sponsor outreach, or learn how team budgets and expenses are organized.
         </div>
+
+        <div class="task-card">
+          <strong>Logistics & Planning</strong>
+          Help create tournament checklists, organize team reminders, or research team bonding activities and meals.
+        </div>
+
+        <div class="task-card">
+          <strong>Communications & Marketing</strong>
+          Help create social media content, team updates, newsletters, or other communication materials for the club community.
+        </div>
+
+        <div class="task-card">
+          <strong>Event & Gameday Support</strong>
+          Help with end-of-season celebrations, parent appreciation ideas, match-day organization, video setup, or officiating-duty reminders.
+        </div>
+      </div>
+    </section>
+
+    <section id="contact-form-section">
+      <h2>Contact Us / Get Involved</h2>
+      <p>Please fill out our official interest form below to connect with us. Whether you are a player, parent, or coach, we look forward to reviewing your submission!</p>
+
+      <div class="form-wrapper">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfSbwclZbffB0vCxaJ2BU5FLMkxZAvr9WfOh0_E_HpLal36sQ/viewform?embedded=true" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-overlay" id="ericModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <h2>Eric Ng</h2>
+          <span>Executive Director</span>
+        </div>
+        <button class="modal-close" id="closeEricBio" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p>Eric is the co-founder and Executive Director of Tri-Valley Alliances. His involvement in competitive youth sports spans organizing, coaching, and officiating, giving him a comprehensive, 360-degree understanding of the game. On the court, Eric serves as an assistant coach for the Emerald High School Girls Varsity volleyball team, where he focuses on developing technical discipline, tactical intelligence, and strong team dynamics.</p>
+        <p>Beyond coaching, Eric is heavily invested in the officiating and regulatory side of the sport. He is a Regional Referee for the Northern California Volleyball Association (NCVA) and a certified official with the Pacific Sierra Board of Officials (PSBO), Mid-Coast Officials Network (MCON), Bay Area Officials Association (BAOA), and the Bay Area Athletic Assignors (BAAA). His extensive background on the stand ensures that Tri-Valley athletes are trained under the highest standards of rule compliance, fair play, and court awareness.</p>
+        <p>Professionally based in Livermore, California, Eric pairs his administrative leadership with a strong analytical background. He looks at club sports through a modern, transparent lens, aiming to strip away the traditional inefficiencies of club sports to deliver a streamlined, impactful experience. He is dedicated to using volleyball as a vehicle for leadership development, ensuring that players build the project management and accountability skills necessary to stand out on college applications and thrive in their future careers.</p>
+      </div>
     </div>
+  </div>
 
-    <footer>
-        <p>&copy; 2026 Tri-Valley Alliances. All Rights Reserved.</p>
-        <p style="font-size: 0.8rem; margin-top: 10px; color: var(--blue-slate);">This organization is a non-profit club volleyball program.</p>
-    </footer>
+  <div class="modal-overlay" id="joeyModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <h2>Joey Chang</h2>
+          <span>Co-founder & Coaching Director</span>
+        </div>
+        <button class="modal-close" id="closeJoeyBio" aria-label="Close modal">&times;</button>
+      </div>
 
-    <!-- Interactive Pop-up Handlers -->
-    <script>
-        // Modal toggler factory logic to handle multiple bios dynamically
-        function setupModal(modalId, openBtnId, closeBtnId) {
-            const modal = document.getElementById(modalId);
-            const openBtn = document.getElementById(openBtnId);
-            const closeBtn = document.getElementById(closeBtnId);
+      <div class="modal-body">
+        <p>Joey brings over 35 years of rich, diverse volleyball experience to Tri-Valley Alliances. His journey through the sport spans almost every format imaginable—from highly competitive indoor play alongside collegiate teammates, to corporate beach play, grass tournaments with youth players, and even training in adaptive sitting volleyball with USA Paralympic athletes. As a dedicated coach, he has led competitive athletes through three seasons each of boys’ and girls’ club volleyball with NorCal Volleyball Club, as well as serving four years coaching JV and Varsity at The Athenian School.</p>
+        <p>Beyond his court credentials, Joey’s background in software engineering, game design, and risk management gives him an incredibly unique, analytical lens for sports development. He approaches the game through the framework of optimization, data analysis, and technical efficiency, while maintaining a deep focus on player motivation and psychological engagement.</p>
+        <p>Guided by three core principles—complete team unity, relentless personal accountability, and evaluating performance based on true success rather than just the scoreboard—Joey views volleyball as a happy vehicle for a greater purpose. As a proud father of three, he believes a coach's ultimate responsibility is to prepare young athletes to navigate the real world and thrive as successful, respectful adults.</p>
+      </div>
+    </div>
+  </div>
 
-            if (!modal || !openBtn || !closeBtn) return;
+  <footer>
+    <p>&copy; 2026 Tri-Valley Alliances. All Rights Reserved.</p>
+    <p style="font-size: 0.8rem; margin-top: 10px; color: var(--blue-slate);">This organization is a non-profit club volleyball program.</p>
+  </footer>
 
-            openBtn.addEventListener('click', () => {
-                modal.classList.add('is-active');
-                document.body.style.overflow = 'hidden'; // Lock main page scrolling
-            });
+  <script>
+    function setupModal(modalId, openBtnId, closeBtnId) {
+      const modal = document.getElementById(modalId);
+      const openBtn = document.getElementById(openBtnId);
+      const closeBtn = document.getElementById(closeBtnId);
 
-            closeBtn.addEventListener('click', () => {
-                modal.classList.remove('is-active');
-                document.body.style.overflow = ''; 
-            });
+      if (!modal || !openBtn || !closeBtn) return;
 
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.remove('is-active');
-                    document.body.style.overflow = '';
-                }
-            });
+      openBtn.addEventListener('click', () => {
+        modal.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+      });
 
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && modal.classList.contains('is-active')) {
-                    modal.classList.remove('is-active');
-                    document.body.style.overflow = '';
-                }
-            });
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('is-active');
+        document.body.style.overflow = '';
+      });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('is-active');
+          document.body.style.overflow = '';
         }
+      });
 
-        // Initialize active handlers for both leadership profiles
-        setupModal('ericModal', 'openEricBio', 'closeEricBio');
-        setupModal('joeyModal', 'openJoeyBio', 'closeJoeyBio');
-    </script>
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+          modal.classList.remove('is-active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
 
+    setupModal('ericModal', 'openEricBio', 'closeEricBio');
+    setupModal('joeyModal', 'openJoeyBio', 'closeJoeyBio');
+  </script>
 </body>
 </html>
