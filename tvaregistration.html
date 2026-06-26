@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TVA Summer Registration</title>
+  <style>
+    :root {
+      --navy: #12284c;
+      --blue: #1f6feb;
+      --sky: #eaf3ff;
+      --gold: #f5b942;
+      --ink: #1f2937;
+      --muted: #667085;
+      --line: #d8e2f0;
+      --white: #ffffff;
+      --soft: #f7f9fc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #f3f8ff 0%, #ffffff 45%, #f7f9fc 100%);
+      line-height: 1.55;
+    }
+
+    .hero {
+      background: radial-gradient(circle at top left, rgba(245,185,66,.35), transparent 32%), linear-gradient(135deg, var(--navy), #1b4d89);
+      color: white;
+      padding: 56px 20px 44px;
+      text-align: center;
+    }
+
+
+    .brand-logo {
+      width: min(520px, 88vw);
+      height: auto;
+      display: block;
+      margin: 0 auto 22px;
+      background: white;
+      border-radius: 18px;
+      padding: 12px 18px;
+      box-shadow: 0 14px 34px rgba(0,0,0,.18);
+    }
+
+    .hero .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 999px;
+      font-size: 14px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      margin: 0 auto 12px;
+      max-width: 850px;
+      font-size: clamp(34px, 6vw, 60px);
+      line-height: 1.02;
+    }
+
+    .hero p {
+      margin: 0 auto;
+      max-width: 780px;
+      font-size: 18px;
+      opacity: .96;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .notice {
+      margin-top: -26px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--gold);
+      border-radius: 16px;
+      padding: 18px 20px;
+      box-shadow: 0 12px 34px rgba(18,40,76,.10);
+    }
+
+    .notice strong { color: var(--navy); }
+
+    section { padding: 34px 0; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 10px 26px rgba(18,40,76,.07);
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: 30px;
+      margin: 0 0 16px;
+    }
+
+    h3 {
+      color: var(--navy);
+      margin: 0 0 10px;
+      font-size: 21px;
+    }
+
+    ul { padding-left: 20px; margin: 10px 0 0; }
+    li { margin: 6px 0; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      min-height: 240px;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: white;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--blue);
+      color: white;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      margin-top: 14px;
+      transition: transform .15s ease, box-shadow .15s ease;
+      box-shadow: 0 8px 18px rgba(31,111,235,.22);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(31,111,235,.28);
+    }
+
+    .button.secondary { background: var(--navy); }
+    .button.gold { background: #b7791f; }
+
+    .schedule {
+      display: grid;
+      grid-template-columns: 1.3fr .9fr .8fr;
+      gap: 18px;
+    }
+
+    .date-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .date-pill {
+      border: 1px solid var(--line);
+      background: var(--soft);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .price {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 6px 0;
+    }
+
+    .small { color: var(--muted); font-size: 14px; }
+
+    .package {
+      border: 2px solid var(--gold);
+      background: linear-gradient(180deg, #fffaf0, #ffffff);
+    }
+
+    .checklist {
+      background: var(--sky);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    footer {
+      background: var(--navy);
+      color: white;
+      padding: 28px 20px;
+      text-align: center;
+      margin-top: 34px;
+    }
+
+    footer p { margin: 4px 0; opacity: .9; }
+
+    @media (max-width: 900px) {
+      .grid, .steps, .schedule { grid-template-columns: 1fr; }
+      .step { min-height: auto; }
+    }
+
+    @media (max-width: 520px) {
+      .date-list { grid-template-columns: 1fr; }
+      .hero { padding-top: 42px; }
+    }
+  </style>
+</head>
+<body>
+<header class="hero">
+    <img class="brand-logo" src="https://tva-volleyball.github.io/welcome/logo.png" alt=" Logo" />
+    
+    <h1>Summer Clinics & Club Tryout</h1>
+    <p>For intermediate and advanced players entering high school and older who want a competitive, focused training environment.</p>
+  </header>
+
+<main>
+  <section class="section" id="overview">
+    <div class="container">
+      <h2>TVA Summer Registration</h2>
+      <p>Tri-Valley Alliances invites intermediate to advanced volleyball players to join our confirmed summer clinics and club tryout.</p>
+
+      <h3>Eligibility Requirements</h3>
+      <ul>
+        <li>Incoming 9th grade and older</li>
+        <li>Intermediate to advanced skill level</li>
+        <li>Minimum one year of club volleyball or high school team experience</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="schedule">
+    <div class="container">
+      <h2>Confirmed Summer Schedule</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Skills Clinics</h3>
+          <p class="price">$40 per session</p>
+          <ul>
+            <li>Tuesday, July 7 • 6:00–8:00 PM</li>
+            <li>Tuesday, July 14 • 6:00–8:00 PM</li>
+            <li>Tuesday, July 21 • 6:00–8:00 PM</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Club Tryout</h3>
+          <p class="price">$40</p>
+          <ul>
+            <li>Sunday, July 26 • 6:00–8:00 PM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="container">
+      <h2>Pricing</h2>
+      <ul>
+        <li><strong>Skills Clinics:</strong> $40 per session</li>
+        <li><strong>Club Tryout:</strong> $40</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="registration">
+    <div class="container">
+      <h2>Registration Process</h2>
+      <div class="steps">
+        <div class="step">
+          <h3>Step 1: Complete Registration Form</h3>
+          <p>Submit player and parent information, school name, eligibility confirmation, selected dates, and TVA waiver acknowledgment.</p>
+          <a class="button" href="https://forms.gle/TdwWWTqdXGaP58HX8" target="_blank" rel="noopener">Complete Registration Form</a>
+        </div>
+        <div class="step">
+          <h3>Step 2: Complete JVA Waiver</h3>
+          <p>Complete the required JVA insurance and waiver form before attending TVA activities.</p>
+          <a class="button secondary" href="https://jvavolleyball.org/insurance-waiver-player-staff-form/" target="_blank" rel="noopener">Complete JVA Waiver</a>
+        </div>
+        <div class="step">
+          <h3>Step 3: Submit Payment</h3>
+          <p>Pay through the TVA Square payment portal after submitting the registration form and JVA waiver.</p>
+          <a class="button" href="https://tvavolleyball.square.site/" target="_blank" rel="noopener">Submit Payment</a>
+        </div>
+      </div>
+
+      <p class="note"><strong>Important:</strong> Registration is not complete until the registration form, JVA waiver, and payment have all been submitted.</p>
+      <p class="note">Payments are non-refundable unless an event is canceled by TVA.</p>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
