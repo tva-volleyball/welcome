@@ -235,6 +235,13 @@
       margin-bottom: 12px;
     }
 
+    .steps.grid.two-step {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .steps .card {
       display: flex;
       flex-direction: column;
@@ -332,28 +339,22 @@
     <section class="section" id="registration">
       <div class="container panel">
         <h2 class="section-title">Registration Process</h2>
-        <p class="section-lead">Registration is complete only after all three steps are submitted.</p>
-        <div class="grid three steps">
+        <p class="section-lead">Registration is complete after both the registration form and payment have been submitted.</p>
+        <div class="grid two steps two-step">
           <div class="card">
             <div class="step-number">1</div>
             <h3>Complete Registration Form</h3>
             <p>Submit player and parent information, school name, date selection, eligibility confirmation, and TVA waiver acknowledgment.</p>
             <a class="button" href="https://forms.gle/TdwWWTqdXGaP58HX8" target="_blank" rel="noopener">Registration Form</a>
           </div>
-          <div class="card">
+<div class="card">
             <div class="step-number">2</div>
-            <h3>Complete JVA Waiver</h3>
-            <p>Complete the required JVA insurance and waiver form before participating in TVA activities.</p>
-            <a class="button" href="https://jvavolleyball.org/insurance-waiver-player-staff-form/" target="_blank" rel="noopener">JVA Waiver</a>
-          </div>
-          <div class="card">
-            <div class="step-number">3</div>
             <h3>Submit Payment</h3>
-            <p>Use the TVA Square payment portal after completing the registration form and JVA waiver.</p>
+            <p>Use the TVA Square payment portal after completing the registration form.</p>
             <a class="button" href="https://tvavolleyball.square.site/" target="_blank" rel="noopener">Payment Portal</a>
           </div>
         </div>
-        <div class="note"><strong>Important:</strong> Payments are non-refundable unless an event is canceled by TVA.</div>
+        <div class="note"><strong>Important:</strong> Registration is complete after both the registration form and payment have been submitted. Participants will receive additional information, including the required JVA waiver, prior to the first clinic or tryout.</div>
       </div>
     </section>
   </main>
