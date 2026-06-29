@@ -215,6 +215,19 @@
       line-height: 1.1;
     }
 
+
+    .clinic-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 18px;
+    }
+
+    @media (max-width: 600px) {
+      .clinic-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .date-chip span {
       display: block;
       color: var(--gold-light);
@@ -314,15 +327,17 @@
 
     <section class="section" id="schedule">
       <div class="container panel">
-        <h2 class="section-title">Confirmed Summer Schedule</h2>
+        <h2 class="section-title">Summer Schedule</h2>
         <p class="section-lead">All confirmed sessions are currently scheduled for 6:00–8:00 PM.</p>
         <div class="grid two">
           <div class="card highlight">
             <h3>Skills Clinics</h3>
             <p class="price">$40 per session</p>
-            <ul class="schedule-list">
+            <ul class="schedule-list clinic-grid">
               <li><div class="date-chip"><span>Tue</span>July 7</div><div><strong>Skills Clinic</strong><br />6:00–8:00 PM</div></li>
+              <li><div class="date-chip"><span>Sat</span>July 11</div><div><strong>Skills Clinic</strong><br />6:00–8:00 PM</div></li>
               <li><div class="date-chip"><span>Tue</span>July 14</div><div><strong>Skills Clinic</strong><br />6:00–8:00 PM</div></li>
+              <li><div class="date-chip"><span>Sat</span>July 18</div><div><strong>Skills Clinic</strong><br />6:00–8:00 PM</div></li>
               <li><div class="date-chip"><span>Tue</span>July 21</div><div><strong>Skills Clinic</strong><br />6:00–8:00 PM</div></li>
             </ul>
           </div>
