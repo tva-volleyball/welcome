@@ -164,6 +164,76 @@
       background: linear-gradient(180deg, #ffffff 0%, #fff8e7 100%);
     }
 
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: white;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+      padding: 13px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .schedule-table th {
+      background: var(--navy);
+      color: white;
+      font-weight: 800;
+    }
+
+    .schedule-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .schedule-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    @media (max-width: 700px) {
+      .schedule-table,
+      .schedule-table thead,
+      .schedule-table tbody,
+      .schedule-table th,
+      .schedule-table td,
+      .schedule-table tr {
+        display: block;
+      }
+
+      .schedule-table thead {
+        display: none;
+      }
+
+      .schedule-table tr {
+        border-bottom: 1px solid var(--border);
+        padding: 10px 0;
+      }
+
+      .schedule-table tr:last-child {
+        border-bottom: none;
+      }
+
+      .schedule-table td {
+        border-bottom: none;
+        padding: 7px 14px;
+      }
+
+      .schedule-table td::before {
+        content: attr(data-label);
+        display: block;
+        font-weight: 800;
+        color: var(--navy);
+        margin-bottom: 2px;
+      }
+    }
+
     .card h3 {
       margin: 0 0 10px;
       color: var(--navy);
@@ -328,26 +398,83 @@
     <section class="section" id="schedule">
       <div class="container panel">
         <h2 class="section-title">Summer Schedule</h2>
-        <p class="section-lead">All confirmed sessions are currently scheduled for 6:00–8:00 PM.</p>
-        <div class="grid two">
-          <div class="card highlight">
-            <h3>Skills Clinics</h3>
-            <p class="price">$40 per session</p>
-            <ul class="schedule-list clinic-grid">
-              <li><div class="date-chip"><span>Tue</span>July 7</div><div><strong>Skills Clinic</strong><br />6:00–8:00 PM</div></li>
-              <li><div class="date-chip"><span>Sat</span>July 11</div><div><strong>Skills Clinic</strong><br />6:00–8:00 PM</div></li>
-              <li><div class="date-chip"><span>Tue</span>July 14</div><div><strong>Skills Clinic</strong><br />6:00–8:00 PM</div></li>
-              <li><div class="date-chip"><span>Sat</span>July 18</div><div><strong>Skills Clinic</strong><br />6:00–8:00 PM</div></li>
-              <li><div class="date-chip"><span>Tue</span>July 21</div><div><strong>Skills Clinic</strong><br />6:00–8:00 PM</div></li>
-            </ul>
-          </div>
-          <div class="card highlight">
-            <h3>Club Tryout</h3>
-            <p class="price">$40</p>
-            <ul class="schedule-list">
-              <li><div class="date-chip"><span>Sun</span>July 26</div><div><strong>Club Tryout</strong><br />6:00–8:00 PM</div></li>
-            </ul>
-          </div>
+        <p class="section-lead">All sessions are currently scheduled for 6:00–8:00 PM.</p>
+
+        <div class="card highlight">
+          <h3>Skills Clinics</h3>
+          <p class="price">$40 per session</p>
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Date">Tuesday, July 7</td>
+                <td data-label="Time">6:00–8:00 PM</td>
+                <td data-label="Location">Robert Livermore Community Center, Livermore</td>
+              </tr>
+              <tr>
+                <td data-label="Date">Thursday, July 9</td>
+                <td data-label="Time">6:00–8:00 PM</td>
+                <td data-label="Location">Robert Livermore Community Center, Livermore</td>
+              </tr>
+              <tr>
+                <td data-label="Date">Saturday, July 11</td>
+                <td data-label="Time">6:00–8:00 PM</td>
+                <td data-label="Location">Stager Community Gym, Dublin</td>
+              </tr>
+              <tr>
+                <td data-label="Date">Tuesday, July 14</td>
+                <td data-label="Time">6:00–8:00 PM</td>
+                <td data-label="Location">Robert Livermore Community Center, Livermore</td>
+              </tr>
+              <tr>
+                <td data-label="Date">Thursday, July 16</td>
+                <td data-label="Time">6:00–8:00 PM</td>
+                <td data-label="Location">Robert Livermore Community Center, Livermore</td>
+              </tr>
+              <tr>
+                <td data-label="Date">Saturday, July 18</td>
+                <td data-label="Time">6:00–8:00 PM</td>
+                <td data-label="Location">Stager Community Gym, Dublin</td>
+              </tr>
+              <tr>
+                <td data-label="Date">Tuesday, July 21</td>
+                <td data-label="Time">6:00–8:00 PM</td>
+                <td data-label="Location">Robert Livermore Community Center, Livermore</td>
+              </tr>
+              <tr>
+                <td data-label="Date">Thursday, July 23</td>
+                <td data-label="Time">6:00–8:00 PM</td>
+                <td data-label="Location">Robert Livermore Community Center, Livermore</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card highlight" style="margin-top: 18px;">
+          <h3>Club Tryout</h3>
+          <p class="price">$40</p>
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Date">Sunday, July 26</td>
+                <td data-label="Time">6:00–8:00 PM</td>
+                <td data-label="Location">TBD based on number of registered participants</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
